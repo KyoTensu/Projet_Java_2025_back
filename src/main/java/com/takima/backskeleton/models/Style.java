@@ -1,24 +1,19 @@
 package com.takima.backskeleton.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
-@Table(name = "majors")
+@Table(name = "style")
 @Getter
-@NoArgsConstructor
-public class Major {
+public class Style {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "major")
-    @JsonIgnore
-    private List<Student> students;
+    @OneToMany
+    private List<Artiste> artistes;
 }
-
