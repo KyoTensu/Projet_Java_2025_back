@@ -15,4 +15,12 @@ public class NationaliteService {
     public List<Nationalite> findAll() {
         return nationaliteDao.findAll();
     }
+
+    public Nationalite findById(long id) {
+        if(nationaliteDao.findById(id).isPresent()){
+            return nationaliteDao.findById(id).get();
+        }else {
+            return null;
+        }
+    }
 }

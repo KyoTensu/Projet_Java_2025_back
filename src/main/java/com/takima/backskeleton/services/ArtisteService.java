@@ -15,4 +15,12 @@ public class ArtisteService {
     public List<Artiste> findAll() {
         return artisteDao.findAll();
     }
+
+    public Artiste findById(long id) {
+        if (artisteDao.findById(id).isPresent()) {
+            return artisteDao.findById(id).get();
+        } else {
+            return null;
+        }
+    }
 }

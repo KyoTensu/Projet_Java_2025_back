@@ -3,10 +3,7 @@ package com.takima.backskeleton.controllers;
 import com.takima.backskeleton.models.Style;
 import com.takima.backskeleton.services.StyleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public class StyleController {
     public List<Style> getAllStyles() {
         return styleService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Style getStyleById(@PathVariable long id) {return styleService.findById(id);}
 }

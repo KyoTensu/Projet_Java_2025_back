@@ -3,10 +3,7 @@ package com.takima.backskeleton.controllers;
 import com.takima.backskeleton.models.Concert;
 import com.takima.backskeleton.services.ConcertService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public class ConcertController {
     public List<Concert> getAllConcerts() {
         return concertService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Concert getConcertById(@PathVariable long id) {return concertService.findById(id);}
 }

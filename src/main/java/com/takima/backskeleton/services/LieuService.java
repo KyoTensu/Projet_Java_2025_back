@@ -15,4 +15,12 @@ public class LieuService {
     public List<Lieu> findAll() {
         return lieuDao.findAll();
     }
+
+    public Lieu findById(Long id) {
+        if(lieuDao.findById(id).isPresent()){
+            return lieuDao.findById(id).get();
+        }else {
+            return null;
+        }
+    }
 }

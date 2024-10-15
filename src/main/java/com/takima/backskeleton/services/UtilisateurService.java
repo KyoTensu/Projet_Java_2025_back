@@ -15,4 +15,12 @@ public class UtilisateurService {
     public List<Utilisateur> findAll() {
         return utilisateurDao.findAll();
     }
+
+    public Utilisateur findById(long id) {
+        if(utilisateurDao.findById(id).isPresent()){
+            return utilisateurDao.findById(id).get();
+        }else {
+            return null;
+        }
+    }
 }

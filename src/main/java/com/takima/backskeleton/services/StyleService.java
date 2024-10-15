@@ -15,4 +15,12 @@ public class StyleService {
     public List<Style> findAll() {
         return styleDao.findAll();
     }
+
+    public Style findById(long id) {
+        if(styleDao.findById(id).isPresent()){
+            return styleDao.findById(id).get();
+        }else{
+            return null;
+        }
+    }
 }

@@ -3,10 +3,7 @@ package com.takima.backskeleton.controllers;
 import com.takima.backskeleton.models.Artiste;
 import com.takima.backskeleton.services.ArtisteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public class ArtisteController {
     public List<Artiste> getAllArtistes() {
         return artisteService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Artiste getArtisteById(@PathVariable long id) { return artisteService.findById(id); }
 }

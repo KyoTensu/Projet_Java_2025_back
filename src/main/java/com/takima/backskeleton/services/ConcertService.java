@@ -15,4 +15,12 @@ public class ConcertService {
     public List<Concert> findAll() {
         return concertDao.findAll();
     }
+
+    public Concert findById(Long id) {
+        if(concertDao.findById(id).isPresent()){
+            return concertDao.findById(id).get();
+        }else {
+            return null;
+        }
+    }
 }
