@@ -53,6 +53,9 @@ CREATE TABLE public.Lieux(
 CREATE TABLE public.Concerts(
     concert_id   SERIAL NOT NULL ,
     lieu_id      INT  NOT NULL  ,
+    concert_date_debut DATE NOT NULL ,
+    concert_date_fin DATE ,
+    concert_name VARCHAR (50) NOT NULL ,
     CONSTRAINT Concerts_PK PRIMARY KEY (concert_id)
 
     ,CONSTRAINT Concerts_Lieux_FK FOREIGN KEY (lieu_id) REFERENCES public.Lieux(lieu_id)
@@ -65,7 +68,6 @@ CREATE TABLE public.Concerts(
 CREATE TABLE public.Nationalite(
     nationalite_id     SERIAL NOT NULL ,
     nationalite_name   VARCHAR (50) NOT NULL ,
-    flag               VARCHAR (50) NOT NULL  ,
     CONSTRAINT Nationalite_PK PRIMARY KEY (nationalite_id)
 )WITHOUT OIDS;
 
