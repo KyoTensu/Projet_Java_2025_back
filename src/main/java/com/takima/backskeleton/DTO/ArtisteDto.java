@@ -18,7 +18,7 @@ public class ArtisteDto {
     private String name;
     private Boolean isGroupe;
     private Instant birthDate;
-    private List<Utilisateur> utilisateurs;
+//    private List<Utilisateur> utilisateurs;
     private Style style;
     private Nationalite nationalite;
     private List<Concert> concerts;

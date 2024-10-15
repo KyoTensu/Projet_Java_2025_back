@@ -11,6 +11,7 @@ import java.util.List;
 public class Concert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "concert_id")
     private Long id;
     @ManyToOne
     @JoinColumn(name = "lieu_id")

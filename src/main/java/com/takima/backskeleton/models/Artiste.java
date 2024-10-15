@@ -12,19 +12,20 @@ import java.util.List;
 public class Artiste {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     @Column(name = "artiste_name")
     private String name;
     @Column(name = "artist_is_group")
     private Boolean isGroup;
+    @Column(name = "artist_date_of_birth")
     private Instant birthdate;
-    @ManyToMany
-    @JoinTable(
-            name = "artiste_favoris",
-            joinColumns = @JoinColumn(name = "artiste_id"),
-            inverseJoinColumns = @JoinColumn(name = "utilisateur_id")
-    )
-    private List<Utilisateur> utilisateurs;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "artiste_favoris",
+//            joinColumns = @JoinColumn(name = "artiste_id"),
+//            inverseJoinColumns = @JoinColumn(name = "utilisateur_id")
+//    )
+//    private List<Utilisateur> utilisateurs;
     @ManyToOne
     @JoinColumn(name = "style_id")
     private Style style;
@@ -37,7 +38,7 @@ public class Artiste {
         this.name = builder.Name;
         this.isGroup = builder.isGroup;
         this.birthdate = builder.birthdate;
-        this.utilisateurs = builder.utilisateurs;
+//        this.utilisateurs = builder.utilisateurs;
         this.style = builder.style;
         this.nationalite = builder.nationalite;
     }
@@ -49,7 +50,7 @@ public class Artiste {
         private String Name;
         private Boolean isGroup;
         private Instant birthdate;
-        private List<Utilisateur> utilisateurs;
+//        private List<Utilisateur> utilisateurs;
         private Style style;
         private Nationalite nationalite;
 
@@ -66,10 +67,10 @@ public class Artiste {
             this.isGroup = isGroup;
             return this;
         }
-        public Artiste.Builder utilisateurs(List<Utilisateur> utilisateurs) {
-            this.utilisateurs = utilisateurs;
-            return this;
-        }
+//        public Artiste.Builder utilisateurs(List<Utilisateur> utilisateurs) {
+//            this.utilisateurs = utilisateurs;
+//            return this;
+//        }
         public Artiste.Builder style(Style style) {
             this.style = style;
             return this;

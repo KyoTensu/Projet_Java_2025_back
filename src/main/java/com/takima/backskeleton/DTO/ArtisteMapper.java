@@ -15,7 +15,7 @@ public class ArtisteMapper {
                 .Name(dto.getName())
                 .isGroup(dto.getIsGroupe())
                 .birthdate(dto.getBirthDate())
-                .utilisateurs(dto.getUtilisateurs())
+//                .utilisateurs(dto.getUtilisateurs())
                 .style(dto.getStyle())
                 .nationalite(dto.getNationalite())
                 .build();
@@ -23,11 +23,11 @@ public class ArtisteMapper {
 
     public static ArtisteDto toDto(Artiste artiste, List<Concert> concerts) throws IOException {
         return new ArtisteDto.ArtisteDtoBuilder()
-                .id(artiste.getId().intValue())
+                .id((int) artiste.getId())
                 .name(artiste.getName())
                 .isGroupe(artiste.getIsGroup())
                 .birthDate(artiste.getBirthdate())
-                .utilisateurs(artiste.getUtilisateurs())
+//                .utilisateurs(artiste.getUtilisateurs())
                 .style(artiste.getStyle())
                 .nationalite(artiste.getNationalite())
                 .concerts(concerts)
