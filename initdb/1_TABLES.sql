@@ -26,19 +26,38 @@ create table student_course
 (
     id SERIAL PRIMARY KEY,
     student_id int not null,
-    course_id int not null
+    course_id int not null,
+    artist_date_of_birth date,
+    style_id int not null,
+    nationalite_id int not null
 );
 
+-- create table lieux
+-- (
+--     id SERIAL PRIMARY KEY,
+--     lieu_capacity int not null,
+--
+-- );
 
-------------------------------------------------------------
+create table artistes
+(
+    id SERIAL PRIMARY KEY,
+    artiste_name TEXT not null,
+    artist_is_group bool not null,
+    artist_date_of_birth date,
+    style_id int not null,
+    nationalite_id int not null
+);
+
+-- ----------------------------------------------------------
 --        Script Postgre
-------------------------------------------------------------
+-- ----------------------------------------------------------
 
 
 
-------------------------------------------------------------
+-- ----------------------------------------------------------
 -- Table: Lieux
-------------------------------------------------------------
+-- ----------------------------------------------------------
 CREATE TABLE public.Lieux(
     lieu_id         SERIAL NOT NULL ,
     lieu_capacity   INT  NOT NULL ,
@@ -86,20 +105,20 @@ CREATE TABLE public.Style(
 ------------------------------------------------------------
 -- Table: Artistes
 ------------------------------------------------------------
-CREATE TABLE public.Artistes(
-    Artiste_id             SERIAL NOT NULL ,
-    artiste_name           VARCHAR (50) NOT NULL ,
-    artist_is_group        BOOL  NOT NULL ,
-    artist_date_of_birth   DATE   ,
-    style_id               INT  NOT NULL ,
-    nationalite_id         INT  NOT NULL  ,
-    CONSTRAINT Artistes_PK PRIMARY KEY (Artiste_id)
-
-    ,CONSTRAINT Artistes_Style_FK FOREIGN KEY (style_id) REFERENCES public.Style(style_id)
-    ,CONSTRAINT Artistes_Nationalite0_FK FOREIGN KEY (nationalite_id) REFERENCES public.Nationalite(nationalite_id)
-)WITHOUT OIDS;
-
-
+-- CREATE TABLE public.Artistes(
+--     Artiste_id             SERIAL NOT NULL ,
+--     artiste_name           VARCHAR (50) NOT NULL ,
+--     artist_is_group        BOOL  NOT NULL ,
+--     artist_date_of_birth   DATE   ,
+--     style_id               INT  NOT NULL ,
+--     nationalite_id         INT  NOT NULL  ,
+--     CONSTRAINT Artistes_PK PRIMARY KEY (Artiste_id)
+--
+--     ,CONSTRAINT Artistes_Style_FK FOREIGN KEY (style_id) REFERENCES public.Style(style_id)
+--     ,CONSTRAINT Artistes_Nationalite0_FK FOREIGN KEY (nationalite_id) REFERENCES public.Nationalite(nationalite_id)
+-- )WITHOUT OIDS;
+--
+--
 ------------------------------------------------------------
 -- Table: Utilisateurs
 ------------------------------------------------------------
@@ -124,7 +143,7 @@ CREATE TABLE public.Membres(
     Artiste_id             INT  NOT NULL  ,
     CONSTRAINT Membres_PK PRIMARY KEY (membre_id)
 
-    ,CONSTRAINT Membres_Artistes_FK FOREIGN KEY (Artiste_id) REFERENCES public.Artistes(Artiste_id)
+    ,CONSTRAINT Membres_Artistes_FK FOREIGN KEY (Artiste_id) REFERENCES artistes(id)
 )WITHOUT OIDS;
 
 
@@ -149,7 +168,7 @@ CREATE TABLE public.Artiste_Favoris(
     utilisateur_id   INT  NOT NULL  ,
     CONSTRAINT Artiste_Favoris_PK PRIMARY KEY (Artiste_id,utilisateur_id)
 
-    ,CONSTRAINT Artiste_Favoris_Artistes_FK FOREIGN KEY (Artiste_id) REFERENCES public.Artistes(Artiste_id)
+    ,CONSTRAINT Artiste_Favoris_Artistes_FK FOREIGN KEY (Artiste_id) REFERENCES artistes(id)
     ,CONSTRAINT Artiste_Favoris_Utilisateurs0_FK FOREIGN KEY (utilisateur_id) REFERENCES public.Utilisateurs(utilisateur_id)
 )WITHOUT OIDS;
 
@@ -163,7 +182,7 @@ CREATE TABLE public.Artistes_Concert(
     CONSTRAINT Artistes_Concert_PK PRIMARY KEY (concert_id,Artiste_id)
 
     ,CONSTRAINT Artistes_Concert_Concerts_FK FOREIGN KEY (concert_id) REFERENCES public.Concerts(concert_id)
-    ,CONSTRAINT Artistes_Concert_Artistes0_FK FOREIGN KEY (Artiste_id) REFERENCES public.Artistes(Artiste_id)
+    ,CONSTRAINT Artistes_Concert_Artistes0_FK FOREIGN KEY (Artiste_id) REFERENCES artistes(id)
 )WITHOUT OIDS;
 
 
