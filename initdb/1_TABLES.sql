@@ -32,23 +32,6 @@ create table student_course
     nationalite_id int not null
 );
 
--- create table lieux
--- (
---     id SERIAL PRIMARY KEY,
---     lieu_capacity int not null,
---
--- );
-
-create table artistes
-(
-    id SERIAL PRIMARY KEY,
-    artiste_name TEXT not null,
-    artist_is_group bool not null,
-    artist_date_of_birth date,
-    style_id int not null,
-    nationalite_id int not null
-);
-
 -- ----------------------------------------------------------
 --        Script Postgre
 -- ----------------------------------------------------------
@@ -105,20 +88,17 @@ CREATE TABLE public.Style(
 ------------------------------------------------------------
 -- Table: Artistes
 ------------------------------------------------------------
--- CREATE TABLE public.Artistes(
---     Artiste_id             SERIAL NOT NULL ,
---     artiste_name           VARCHAR (50) NOT NULL ,
---     artist_is_group        BOOL  NOT NULL ,
---     artist_date_of_birth   DATE   ,
---     style_id               INT  NOT NULL ,
---     nationalite_id         INT  NOT NULL  ,
---     CONSTRAINT Artistes_PK PRIMARY KEY (Artiste_id)
---
---     ,CONSTRAINT Artistes_Style_FK FOREIGN KEY (style_id) REFERENCES public.Style(style_id)
---     ,CONSTRAINT Artistes_Nationalite0_FK FOREIGN KEY (nationalite_id) REFERENCES public.Nationalite(nationalite_id)
--- )WITHOUT OIDS;
---
---
+create table artistes
+(
+    id SERIAL PRIMARY KEY,
+    artiste_name TEXT not null,
+    artist_is_group bool not null,
+    artist_date_of_birth date,
+    style_id int not null,
+    nationalite_id int not null
+);
+
+
 ------------------------------------------------------------
 -- Table: Utilisateurs
 ------------------------------------------------------------
