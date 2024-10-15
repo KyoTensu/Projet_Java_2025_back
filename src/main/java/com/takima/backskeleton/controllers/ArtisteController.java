@@ -1,7 +1,10 @@
 package com.takima.backskeleton.controllers;
 
+import com.takima.backskeleton.DTO.ArtisteDto;
 import com.takima.backskeleton.models.Artiste;
+import com.takima.backskeleton.models.Concert;
 import com.takima.backskeleton.services.ArtisteService;
+import com.takima.backskeleton.services.ConcertService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ArtisteController {
     private final ArtisteService artisteService;
+    private final ConcertService concertService;
 
     @GetMapping("")
     public List<Artiste> getAllArtistes() {
@@ -20,5 +24,5 @@ public class ArtisteController {
     }
 
     @GetMapping("/{id}")
-    public Artiste getArtisteById(@PathVariable long id) { return artisteService.findById(id); }
+    public ArtisteDto getArtisteById(@PathVariable long id) { return artisteService.findById(id); }
 }

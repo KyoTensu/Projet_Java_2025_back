@@ -5,6 +5,7 @@ import com.takima.backskeleton.models.Concert;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -23,4 +24,6 @@ public class ConcertService {
             return null;
         }
     }
+
+    public List<Concert> findByArtisteId(long id) {return concertDao.findConcertByArtist(id);}
 }
