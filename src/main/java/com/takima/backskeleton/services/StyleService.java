@@ -16,7 +16,7 @@ public class StyleService {
         return styleDao.findAll();
     }
 
-    public Style findById(long id) {
+    public Style findById(Long id) {
         if(styleDao.findById(id).isPresent()){
             return styleDao.findById(id).get();
         }else{

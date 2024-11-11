@@ -20,5 +20,10 @@ public class ConcertController {
     }
 
     @GetMapping("/{id}")
-    public Concert getConcertById(@PathVariable long id) {return concertService.findById(id);}
+    public Concert getConcertById(@PathVariable Long id) {return concertService.findById(id);}
+
+    @GetMapping("/{id}/artiste")
+    public List<Concert> getConcertsByArtiste(@PathVariable Long id) {
+        return concertService.findConcertsByArtisteId(id);
+    }
 }

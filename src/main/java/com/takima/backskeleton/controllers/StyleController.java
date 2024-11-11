@@ -20,5 +20,5 @@ public class StyleController {
     }
 
     @GetMapping("/{id}")
-    public Style getStyleById(@PathVariable long id) {return styleService.findById(id);}
+    public Style getStyleById(@PathVariable Long id) {return styleService.findById(id);}
 }

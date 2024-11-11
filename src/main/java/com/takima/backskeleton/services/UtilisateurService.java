@@ -16,7 +16,7 @@ public class UtilisateurService {
         return utilisateurDao.findAll();
     }
 
-    public Utilisateur findById(long id) {
+    public Utilisateur findById(Long id) {
         if(utilisateurDao.findById(id).isPresent()){
             return utilisateurDao.findById(id).get();
         }else {

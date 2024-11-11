@@ -16,7 +16,7 @@ public class NationaliteService {
         return nationaliteDao.findAll();
     }
 
-    public Nationalite findById(long id) {
+    public Nationalite findById(Long id) {
         if(nationaliteDao.findById(id).isPresent()){
             return nationaliteDao.findById(id).get();
         }else {

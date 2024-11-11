@@ -20,5 +20,5 @@ public class UtilisateurController {
     }
 
     @GetMapping("/{id}")
-    public Utilisateur getUtilisateurById(@PathVariable long id) {return utilisateurService.findById(id);}
+    public Utilisateur getUtilisateurById(@PathVariable Long id) {return utilisateurService.findById(id);}
 }

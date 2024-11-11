@@ -16,15 +16,16 @@ import java.util.List;
 public class ArtisteService {
     private final ArtisteDao artisteDao;
     private final ConcertDao concertDao;
+    private final ConcertService concertService;
 
     public List<Artiste> findAll() {
         return artisteDao.findAll();
     }
 
-    public ArtisteDto findById(long id) {
+    public ArtisteDto findById(Long id) {
         if (artisteDao.findById(id).isPresent()) {
             try{
-                return ArtisteMapper.toDto(artisteDao.findById(id).get(), concertDao.findConcertByArtist(id));
+                return ArtisteMapper.toDto(artisteDao.findById(id).get(), concertService.findConcertsByArtisteId(id));
             }catch (IOException e){
                 e.printStackTrace();
                 return null;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin
-@RequestMapping("Lieux")
+@RequestMapping("lieux")
 @RestController
 @RequiredArgsConstructor
 public class LieuController {
@@ -20,5 +20,5 @@ public class LieuController {
     }
 
     @GetMapping("/{id}")
-    public Lieu getLieu(@PathVariable long  id) {return lieuService.findById(id);}
+    public Lieu getLieu(@PathVariable Long id) {return lieuService.findById(id);}
 }
