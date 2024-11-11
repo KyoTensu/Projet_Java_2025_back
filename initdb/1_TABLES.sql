@@ -1,36 +1,36 @@
-create table students
-(
-    id SERIAL PRIMARY KEY,
-    first_name TEXT not null,
-    last_name TEXT not null,
-    birthdate date null,
-    major_id int null,
-    image bytea null
-);
-
-create table majors
-(
-    id SERIAL PRIMARY KEY,
-    name TEXT not null,
-    description TEXT not null
-);
-
-create table courses
-(
-    id SERIAL PRIMARY KEY,
-    name TEXT not null,
-    hours int not null
-);
-
-create table student_course
-(
-    id SERIAL PRIMARY KEY,
-    student_id int not null,
-    course_id int not null,
-    artist_date_of_birth date,
-    style_id int not null,
-    nationalite_id int not null
-);
+-- create table students
+-- (
+--     id SERIAL PRIMARY KEY,
+--     first_name TEXT not null,
+--     last_name TEXT not null,
+--     birthdate date null,
+--     major_id int null,
+--     image bytea null
+-- );
+--
+-- create table majors
+-- (
+--     id SERIAL PRIMARY KEY,
+--     name TEXT not null,
+--     description TEXT not null
+-- );
+--
+-- create table courses
+-- (
+--     id SERIAL PRIMARY KEY,
+--     name TEXT not null,
+--     hours int not null
+-- );
+--
+-- create table student_course
+-- (
+--     id SERIAL PRIMARY KEY,
+--     student_id int not null,
+--     course_id int not null,
+--     artist_date_of_birth date,
+--     style_id int not null,
+--     nationalite_id int not null
+-- );
 
 -- ----------------------------------------------------------
 --        Script Postgre
@@ -137,19 +137,6 @@ CREATE TABLE public.Concert_Favoris(
 
     ,CONSTRAINT Concert_Favoris_Concerts_FK FOREIGN KEY (concert_id) REFERENCES public.Concerts(concert_id)
     ,CONSTRAINT Concert_Favoris_Utilisateurs0_FK FOREIGN KEY (utilisateur_id) REFERENCES public.Utilisateurs(utilisateur_id)
-)WITHOUT OIDS;
-
-
-------------------------------------------------------------
--- Table: Artiste_Favoris
-------------------------------------------------------------
-CREATE TABLE public.Artiste_Favoris(
-    Artiste_id       INT  NOT NULL ,
-    utilisateur_id   INT  NOT NULL  ,
-    CONSTRAINT Artiste_Favoris_PK PRIMARY KEY (Artiste_id,utilisateur_id)
-
-    ,CONSTRAINT Artiste_Favoris_Artistes_FK FOREIGN KEY (Artiste_id) REFERENCES artistes(id)
-    ,CONSTRAINT Artiste_Favoris_Utilisateurs0_FK FOREIGN KEY (utilisateur_id) REFERENCES public.Utilisateurs(utilisateur_id)
 )WITHOUT OIDS;
 
 

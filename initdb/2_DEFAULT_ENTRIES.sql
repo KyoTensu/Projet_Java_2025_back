@@ -52,8 +52,6 @@ INSERT INTO utilisateurs (utilisateur_firstname, utilisateur_lastname, utilisate
 Insert Into concert_favoris (concert_id, utilisateur_id) VALUES (1, 1);
 Insert Into concert_favoris (concert_id, utilisateur_id) VALUES (2, 1);
 
-INSERT INTO artiste_favoris (artiste_id, utilisateur_id) VALUES (1,1);
-INSERT INTO artiste_favoris (artiste_id, utilisateur_id) VALUES (1,2);
 
 INSERT INTO artistes_concert (concert_id, artiste_id) VALUES (1, 1);
 INSERT INTO artistes_concert (concert_id, artiste_id) VALUES (1, 2);
