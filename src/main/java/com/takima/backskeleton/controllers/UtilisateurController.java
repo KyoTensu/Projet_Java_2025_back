@@ -21,4 +21,9 @@ public class UtilisateurController {
 
     @GetMapping("/{id}")
     public Utilisateur getUtilisateurById(@PathVariable Long id) {return utilisateurService.findById(id);}
+
+    @GetMapping("/authentification/{mail}/{password}")
+    public Utilisateur getUtilisateurByMailAndPassword(@PathVariable String mail, @PathVariable String password) {
+        return utilisateurService.findUtilisateurByMailAndPassword(mail, password);
+    }
 }

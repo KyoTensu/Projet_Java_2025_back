@@ -23,4 +23,12 @@ public class UtilisateurService {
             return null;
         }
     }
+
+    public Utilisateur findUtilisateurByMailAndPassword(String mail, String password) {
+        if(utilisateurDao.findUtilisateurByMailAndPassword(mail, password) != null) {
+            return utilisateurDao.findUtilisateurByMailAndPassword(mail, password);
+        }else {
+            return null;
+        }
+    }
 }

@@ -26,6 +26,5 @@ public class Utilisateur {
 //            @JsonIgnore
 //    List<Artiste> artistes;
     @ManyToMany(mappedBy = "utilisateurs")
-            @JsonIgnore
     List<Concert> concerts;
 }

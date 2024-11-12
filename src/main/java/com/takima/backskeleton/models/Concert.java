@@ -1,5 +1,6 @@
 package com.takima.backskeleton.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -29,6 +30,7 @@ public class Concert {
             joinColumns = @JoinColumn(name = "concert_id"),
             inverseJoinColumns = @JoinColumn(name = "utilisateur_id")
     )
+    @JsonIgnore
     private List<Utilisateur> utilisateurs;
     @ManyToMany
     @JoinTable(
