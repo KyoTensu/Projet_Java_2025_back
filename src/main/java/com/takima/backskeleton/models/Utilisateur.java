@@ -27,4 +27,54 @@ public class Utilisateur {
 //    List<Artiste> artistes;
     @ManyToMany(mappedBy = "utilisateurs")
     List<Concert> concerts;
+
+    private Utilisateur(Builder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.password = builder.password;
+        this.mail = builder.mail;
+        this.concerts = builder.concerts;
+    }
+
+    public Utilisateur() {
+    }
+
+    public static class Builder {
+        private Long id;
+        private String firstName;
+        private String lastName;
+        private String password;
+        private String mail;
+        List<Concert> concerts;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+        public Builder password(String password) {
+            this.password = password;
+            return this;
+        }
+        public Builder mail(String mail) {
+            this.mail = mail;
+            return this;
+        }
+        public Builder concerts(List<Concert> concerts) {
+            this.concerts = concerts;
+            return this;
+        }
+
+        public Utilisateur build() {
+            return new Utilisateur(this);
+        }
+    }
 }
