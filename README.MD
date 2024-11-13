@@ -2,7 +2,7 @@
 
 ## Set up 
 1. Copier-coller le .env.sample en .env
-2. Lancer Docker et faire un `docker-compose up
+2. Lancer Docker et faire un `docker-compose up`
 3. Rajouter le plugin : https://plugins.jetbrains.com/plugin/7861-envfile
 4. <img src="img-readme/img.png">
 5. <img src="img-readme/img_1.png">
