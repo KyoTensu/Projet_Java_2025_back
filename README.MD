@@ -17,12 +17,17 @@ Les endpoints disponibles sur le serveur back-end sont les suivants :
 # Lancement du projet
 
 1. Copier-coller le .env.sample en .env
-2. Lancer Docker et faire un `docker-compose up` dans le répertoire `back-skeleton`
-3. Rajouter le plugin : https://plugins.jetbrains.com/plugin/7861-envfile
+2. Lancez Docker et faire un `docker-compose up` dans le répertoire `back-skeleton`
+3. Rajoutez le plugin : https://plugins.jetbrains.com/plugin/7861-envfile
 4. <img src="img-readme/img.png">
 5. <img src="img-readme/img_1.png">
 6. <img src="img-readme/img_2.png">
-7. Exécuter les scripts BDD dans /initdb
-8. Run la BackSkeletonApplication
+7. Ajoutez une source de données (barre d'outil de droite => icône de base de données)
+8. Choisissez une source de données "PostgreSQL"
+9. Fournissez le username (root), le mot de passe (toor) et changez l'URL pour `jdbc:postgresql://localhost:5432/back-skeleton`
+10. Cliquez sur "Apply" puis "Ok"
+11. Exécutez les scripts BDD dans /initdb (Clique droit sur les fichiers puis "Run")
+12. Dans "target", appuyez sur le "+" et ajouter la source de données postgre puis faites "run"
+13. Run la BackSkeletonApplication avec Intellij (Bouton Play)
 
 Tout est bon !
