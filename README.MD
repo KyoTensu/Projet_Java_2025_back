@@ -1,4 +1,4 @@
-#Endpoints du back-end du projet
+# Endpoints du back-end du projet
 
 Les endpoints disponibles sur le serveur back-end sont les suivants :
   - `GET /concerts` pour récupérer l'intégralité des concerts
